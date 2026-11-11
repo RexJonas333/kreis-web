@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Vaultline – dein privater Messenger</title>
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#0E0F13">
+<style>
+  :root { --a: #7C6CF2; --a2: #9B8CFF; --ok: #2FB37A; --bg: #0E0F13; --c: #1B1D24; --l: rgba(255,255,255,.08); --t: #ECEDF2; --t2: #A6A9B6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; color: var(--t); background: radial-gradient(1100px 600px at 15% -10%, rgba(124,108,242,.35), transparent 60%), radial-gradient(900px 500px at 110% 100%, rgba(47,179,122,.18), transparent 60%), var(--bg); min-height: 100vh; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 48px 20px 64px; }
+  header { display: flex; align-items: center; gap: 14px; }
+  header img { width: 56px; height: 56px; border-radius: 16px; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; margin: 40px 0 12px; letter-spacing: -.02em; }
+  h1 span { background: linear-gradient(90deg, var(--a2), #7CF2C2); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { color: var(--t2); font-size: 19px; max-width: 640px; }
+  .dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 34px 0; }
+  .card { background: var(--c); border: 1px solid var(--l); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .card h3 { margin: 0; font-size: 19px; display: flex; gap: 10px; align-items: center; }
+  .card p { margin: 0; color: var(--t2); font-size: 14.5px; flex: 1; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 12px; background: var(--a); color: #fff; font-weight: 700; text-decoration: none; border: 0; cursor: pointer; font-size: 15px; }
+  .btn:hover { background: var(--a2); }
+  .btn.sec { background: #2C303B; } .btn.sec:hover { background: #363a47; }
+  .btn.ok { background: var(--ok); }
+  svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .feat { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 28px; }
+  .feat div { color: var(--t2); font-size: 14.5px; } .feat b { color: var(--t); display: block; margin-bottom: 4px; }
+  .invite { display: none; background: linear-gradient(135deg, rgba(124,108,242,.22), rgba(47,179,122,.14)); border: 1px solid rgba(155,140,255,.4); border-radius: 20px; padding: 22px; margin-top: 30px; }
+  .invite.on { display: block; }
+  .code { font: 12px/1.4 ui-monospace, Consolas, monospace; background: rgba(0,0,0,.35); padding: 10px; border-radius: 10px; word-break: break-all; color: var(--t2); margin: 10px 0; max-height: 80px; overflow: auto; }
+  .small { font-size: 13px; color: var(--t2); }
+  details { background: var(--c); border: 1px solid var(--l); border-radius: 14px; padding: 14px 18px; margin-top: 10px; }
+  summary { cursor: pointer; font-weight: 700; }
+  footer { margin-top: 40px; color: #6E7280; font-size: 13px; }
+  #ver { color: var(--t2); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img src="icon-192.png" alt=""><div><div style="font-weight:800;font-size:22px">Vaultline</div><div id="ver">Privater Messenger</div></div></header>
+
+  <div class="invite" id="inv">
+    <h3 style="margin:0 0 6px" id="inv-t">Du wurdest eingeladen!</h3>
+    <div class="small" id="inv-s">Installiere Vaultline, öffne es und füge diesen Link unter „Freund hinzufügen“ ein.</div>
+    <div class="code" id="inv-code"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="inv-copy">Link kopieren</button><a class="btn sec" id="inv-web" href="app/">Direkt im Browser öffnen</a></div>
+  </div>
+
+  <h1>Euer Chat.<br><span>Nur für euch.</span></h1>
+  <p class="lead">Vaultline ist wie WhatsApp und Discord zusammen – aber privat für dich und deine Freunde. Alles ist Ende-zu-Ende-verschlüsselt: Nachrichten, Bilder, Sprachnachrichten und Anrufe.</p>
+
+  <div class="dl">
+    <div class="card"><h3><svg viewBox="0 0 24 24"><path d="M2 4h20v13H2zM8 21h8M12 17v4"/></svg>Windows</h3><p>Das PC-Programm – mit Server, Sprachkanälen, Bildschirm teilen und Infobereich wie bei Discord.</p><a class="btn" id="dl-exe" href="https://github.com/RexJonas333/kreis-web/releases/download/neueste/Vaultline-Setup.exe">Für Windows herunterladen</a><span class="small">Windows zeigt beim ersten Start evtl. „Der Computer wurde geschützt“ → „Weitere Informationen“ → „Trotzdem ausführen“.</span></div>
+    <div class="card"><h3><svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2"/></svg>Android</h3><p>Die App fürs Handy als APK – mit Benachrichtigungen, Anrufen und automatischen Updates.</p><a class="btn ok" id="dl-apk" href="Vaultline.apk">APK herunterladen</a><span class="small">Beim Installieren „Aus dieser Quelle zulassen“ erlauben.</span></div>
+    <div class="card"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>Browser &amp; iPhone</h3><p>Ohne Installation im Browser. Auf dem iPhone in Safari öffnen → Teilen → „Zum Home-Bildschirm“.</p><a class="btn sec" href="app/">Im Browser öffnen</a><span class="small">Die installierten Apps sind etwas sicherer als die Browser-Version.</span></div>
+  </div>
+
+  <div class="feat">
+    <div><b>Ende-zu-Ende-verschlüsselt</b>Der Server sieht nur Datensalat. Absender und Empfänger stehen nicht lesbar drin.</div>
+    <div><b>Keine Nummer, keine E-Mail</b>Nur Benutzername + Passwort – auf allen Geräten gleichzeitig. Freunde findest du per @name, Link oder QR-Code.</div>
+    <div><b>Chats, Gruppen, Server</b>1:1, Gruppen, Discord-Server mit Kanälen, Rollen, Einladungslinks und Sprachkanälen.</div>
+    <div><b>Anrufe direkt</b>Sprach- und Videoanrufe laufen direkt zwischen euren Geräten – auch in Gruppen und mit Bildschirm teilen.</div>
+  </div>
+
+  <h2 style="margin-top:44px">Fragen</h2>
+  <details><summary>Kann ich am PC und am Handy gleichzeitig angemeldet sein?</summary><p class="small">Ja. Erstelle beim ersten Start ein Konto mit Benutzername und Passwort und melde dich auf deinen anderen Geräten einfach damit an. Deine Chats werden automatisch übertragen.</p></details>
+  <details><summary>Wie füge ich Freunde hinzu?</summary><p class="small">Am einfachsten über den Benutzernamen: + → „Freund hinzufügen“ → @name eingeben. Oder: Öffne Vaultline → „Freund hinzufügen“. Dort siehst du deinen QR-Code und deinen Link. Schick ihn deinem Freund – er fügt ihn bei sich ein oder scannt den Code. Sobald er annimmt, könnt ihr schreiben.</p></details>
+  <details><summary>Was, wenn ich mein Passwort vergesse?</summary><p class="small">Dann kann es niemand zurücksetzen – das ist der Preis dafür, dass wirklich nur du an deine Schlüssel kommst. Solange du noch auf einem Gerät angemeldet bist, kannst du dort eine Sicherungsdatei erstellen oder das Passwort ändern.</p></details>
+  <details><summary>Wie sicher ist das?</summary><p class="small">Jede Nachricht wird auf deinem Gerät mit ECDH (P-256) und AES-256-GCM verschlüsselt und mit ECDSA unterschrieben. Anrufe laufen per WebRTC (DTLS-SRTP) direkt zwischen den Geräten. Vergleicht für maximale Sicherheit in Vaultline eure Sicherheitsnummer.</p></details>
+
+  <footer>Vaultline – privat für Freunde. Diese Seite wird nicht von Suchmaschinen erfasst.</footer>
+</div>
+<script>
+  (function () {
+    var h = location.hash || '';
+    var add = h.match(/add=(K1[A-Za-z0-9_-]+)/), join = h.match(/join=(J1[A-Za-z0-9_-]+)/);
+    if (add || join) {
+      var inv = document.getElementById('inv'); inv.classList.add('on');
+      var link = location.href;
+      document.getElementById('inv-code').textContent = link;
+      try {
+        var raw = (add ? add[1] : join[1]).slice(2).replace(/-/g, '+').replace(/_/g, '/');
+        while (raw.length % 4) raw += '=';
+        var d = JSON.parse(decodeURIComponent(escape(atob(raw))));
+        document.getElementById('inv-t').textContent = add ? (d.n + ' möchte mit dir auf Vaultline schreiben!') : ('Du wurdest zu „' + d.n + '“ eingeladen!');
+      } catch (e) {}
+      document.getElementById('inv-web').href = 'app/' + h;
+      document.getElementById('inv-copy').onclick = function () { navigator.clipboard.writeText(link).then(function () { document.getElementById('inv-copy').textContent = 'Kopiert!'; }); };
+    }
+    fetch('version.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (v) {
+      document.getElementById('ver').textContent = 'Version ' + v.name + ' · ' + v.date;
+      if (v.exe) document.getElementById('dl-exe').href = v.exe;
+    }).catch(function () {});
+  })();
+</script>
+</body>
+</html>
