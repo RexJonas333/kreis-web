@@ -1,0 +1,6 @@
+{"build": 6, "name": "1.0.6", "date": "2026-11-20",
+ "apk": "https://rexjonas333.github.io/kreis-web/Vaultline.apk",
+ "exe": "https://github.com/RexJonas333/kreis-web/releases/download/neueste/Vaultline-Setup.exe",
+ "exeSha256": "8ff08b0650b9c9d3d193f16a000172d3331615f2f1f5287937192f5af6198f8c",
+ "apkSha256": "0a30eaaa92e7581b2153e0d02131ccaad9fd6340bdde144f2d96ace59231d02e",
+ "notes": ["Kamera an/aus im Anruf funktioniert zuverlässig", "Handy: Schreiben im Anruf – Tastatur klappt nicht mehr zu", "Töne bei Verbinden, Trennen, Stumm, Kamera und Stream", "Lautstärke pro Person bis 200 % (Rechtsklick oder Lautsprecher-Knopf auf der Kachel)", "Anruf-Leiste oben zeigt immer, ob du verbunden bist", "Viele Sicherheits-Verbesserungen"]}
